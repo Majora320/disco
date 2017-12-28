@@ -548,6 +548,9 @@ class MessageIterator(object):
         if not len(self._buffer):
             self.fill()
 
+        if not len(self._buffer):
+            raise StopIteration
+
         if self.bulk:
             res = self._buffer
             self._buffer = []
